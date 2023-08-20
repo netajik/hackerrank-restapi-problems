@@ -27,10 +27,12 @@ public class RestaurantVotes {
             String httpsUrl = String.format("https://jsonmock.hackerrank.com/api/food_outlets?city=%s&estimated_cost=%d",
                     cityName ,estimatedCost);
             JSONObject jsonObject = getResponse(httpsUrl);
+
             //get total pages
             if(page==1){
                 totalpages = (long) jsonObject.get("total_pages");
             }
+
             // get data of restaurant
             JSONArray restaurants = (JSONArray) jsonObject.get("data");
 
@@ -40,6 +42,7 @@ public class RestaurantVotes {
                 long votes = (long) ratings.get("votes");
                 result+=votes;
             }
+
             //goto next page
             page++;
         }

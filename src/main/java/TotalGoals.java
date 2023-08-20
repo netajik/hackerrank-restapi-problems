@@ -2,7 +2,6 @@ import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
-import org.json.simple.JSONArray;
 
 class Result {
 
@@ -64,7 +63,7 @@ class Result {
     }
 }
 
-public class HackerRankApiTotalGoalsProblem {
+public class TotalGoals {
     public static void main(String[] args) throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
