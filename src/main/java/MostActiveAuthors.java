@@ -43,6 +43,7 @@ public class MostActiveAuthors {
         Long page = 1l, totalPages = 1l;
 
         while (page <= totalPages) {
+            // make request for each page
             URL url = new URL("https://jsonmock.hackerrank.com/api/article_users?page=" + page);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");
@@ -53,9 +54,13 @@ public class MostActiveAuthors {
             }
             JSONParser parser = new JSONParser();
             JSONObject responseObj = (JSONObject) parser.parse(new InputStreamReader(connection.getInputStream()));
+
+            //set total pages
             if(page==1){
                 totalPages = (Long)responseObj.get("total_pages");
             }
+
+            //get data for each user
             JSONArray articals = (JSONArray) responseObj.get("data");
             for(Object artical:articals){
                 JSONObject articalObj = (JSONObject) artical;
@@ -65,6 +70,8 @@ public class MostActiveAuthors {
                     users.add(userName);
                 }
             }
+
+            //goto next page
             page++;
         }
         return users;
