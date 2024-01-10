@@ -16,11 +16,10 @@ import java.util.List;
  * Most Active Authors
  *
  * API URL: https://jsonmock.hackerrank.com/api/article_users?page=<pageNumber>
- * threshold: integer that represents the threshold value for the number of
- * submission count
+ * threshold: integer that represents the threshold value for the number of submission count
  * The function should return an array of strings that represent the usernames
- * of users whose submission count is greater
- * than the given threshold. The usernames in the array must be ordered in the
+ * of users whose submission count is greater than the given threshold. 
+ * The usernames in the array must be ordered in the
  * order they appear in the API response
  *
  */
@@ -34,7 +33,8 @@ public class MostActiveAuthors {
         } catch (MalformedURLException | ParseException e) {
             e.printStackTrace();
         }
-        users.stream().forEach(System.out::println);
+        if(users !=null)
+            users.stream().forEach(System.out::println);
     }
 
     static List<String> getUserNames(int threshold) throws IOException, ParseException {
