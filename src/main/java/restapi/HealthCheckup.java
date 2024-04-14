@@ -1,3 +1,4 @@
+package restapi;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -29,7 +30,6 @@ public class HealthCheckup {
             if(page==1){
                 totalPages=(Long)jsonResponse.get("total_pages");
             }
-
             JSONArray jsonArray = (JSONArray) jsonResponse.get("data");
             for(Object obj : jsonArray) {
                 JSONObject jsonObject = (JSONObject) obj;
@@ -37,7 +37,6 @@ public class HealthCheckup {
                 Long dia = (Long) vitals.get("bloodPressureDiastole");
                 if(dia>=lowerLimit&&dia<=upperLimit) total++;
             }
-
             //goto next page
             page++;
         }
